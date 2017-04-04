@@ -1,24 +1,29 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Instalation of MongoDB in Linux Operating System:
 
-Things you may want to cover:
+link: http://www.decom.ufop.br/imobilis/tutorial-rails-conectando-rails-4-ao-mongodb/
 
-* Ruby version
+Commands:
 
-* System dependencies
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 
-* Configuration
+echo 'deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen' | sudo tee /etc/apt/sources.list.d/mongodb.list
 
-* Database creation
+sudo apt-get update
+	
+sudo apt-get install mongodb-org
 
-* Database initialization
+Create a project with command:
 
-* How to run the test suite
+rails new TutorialMongo --skip-active-record
 
-* Services (job queues, cache servers, search engines, etc.)
+Add gems to gemfile:
 
-* Deployment instructions
+gem 'mongoid'
+gem 'bson_ext
 
-* ...
+run bundle install
+
+And after, it is necessary install configuration of mongodb database:
+
+rails g mongoid:config
